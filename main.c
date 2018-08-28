@@ -35,6 +35,11 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
         return GetLastError();
     }
 
+    is_succeeded = EmptyClipboard();
+    if (!is_succeeded) {
+        return GetLastError();
+    }
+
     DWORD error = SetStringToClipboard(string_to_set);
     CloseClipboard();
 
